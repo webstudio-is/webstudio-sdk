@@ -1,7 +1,7 @@
 import React from "react";
 import { buildCss } from "~/style";
 import { type Instance } from "~/instance";
-import { type WrapperComponentProps } from "~/wrapper-component";
+import { type WrapperComponentProps } from "./wrapper-component";
 
 export type ChildrenUpdates = Array<
   | string

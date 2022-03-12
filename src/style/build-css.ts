@@ -1,4 +1,4 @@
-import type { CSS } from "~/stitches";
+import type { CSS } from "~/css";
 import type { Style, StyleProperty } from "./types";
 
 /**

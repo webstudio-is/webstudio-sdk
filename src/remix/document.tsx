@@ -7,7 +7,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import { CriticalCss } from "~/critical-css";
+import { CriticalCss } from "~/remix/critical-css";
 
 export const Document = ({ Outlet = DefaultOutlet } = {}) => {
   return (

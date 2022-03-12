@@ -1,9 +1,9 @@
 import React, { useMemo, Fragment } from "react";
-import type { OnChangeChildren } from "~/create-elements-tree";
 import { type Instance } from "~/instance";
 import * as components from "~/components";
 import { useUserProps } from "~/user-props/use-user-props";
-import { type CSS, css as createCss } from "~/stitches";
+import { type CSS, css as createCss } from "~/css";
+import type { OnChangeChildren } from "./create-elements-tree";
 
 const renderText = (text: string): Array<JSX.Element> => {
   const lines = text.split("\n");
