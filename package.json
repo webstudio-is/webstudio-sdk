@@ -2,12 +2,12 @@
   "name": "@webstudio-is/sdk",
   "version": "0.1.0",
   "scripts": {
-    "build:lib": "rm -fr ./lib && ./bin/lib.ts",
+    "build": "yarn build:mdn-data && yarn build:lib",
+    "build:lib": "rm -fr lib && tsc",
     "build:mdn-data": "./bin/mdn-data.ts ./src/style",
-    "typecheck": "tsc -b"
+    "typecheck": "tsc --noEmit"
   },
   "description": "Webstudio JavaScript / TypeScript API",
-  "main": "lib/index.js",
   "repository": "git@github.com:webstudio-is/webstudio-sdk.git",
   "author": "Oleg Isonen <oleg@webstudio.is>",
   "website": "https://webstudio.is",
@@ -36,6 +36,8 @@
     "@stitches/react": "^1.2.7",
     "react-nano-state": "^0.4.0"
   },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "files": [
     "README.md",
     "lib/*",

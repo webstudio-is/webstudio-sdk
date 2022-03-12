@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
-import { type Instance } from "~/instance";
-import { useSubscribe } from "~/pubsub";
+import { type Instance } from "../instance";
+import { useSubscribe } from "../pubsub";
 import { type UserPropsUpdates, type UserProp } from "./types";
 import { useAllUserProps, type AllUserProps } from "./all-user-props";
 

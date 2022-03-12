@@ -25,7 +25,7 @@ const {
   utils: {},
 });
 
-export { css, getCssText, globalCss };
+export { css, getCssText, globalCss, config };
 export type CSS = Stitches.CSS<typeof config>;
 
 export const darkTheme = createTheme("dark-theme", {

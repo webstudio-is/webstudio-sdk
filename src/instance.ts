@@ -1,5 +1,5 @@
-import type { Style } from "~/style";
-import * as components from "~/components";
+import type { Style } from "./style";
+import * as components from "./components";
 
 export type Instance = {
   id: string;

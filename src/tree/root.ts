@@ -1,6 +1,6 @@
-import { useAllUserProps } from "~/user-props/";
-//import type { Tree, InstanceProps } from "~/shared/db";
-import { globalCss } from "~/css";
+import { useAllUserProps } from "../user-props/";
+//import type { Tree, InstanceProps } from "../shared/db";
+import { globalCss } from "../css";
 import { createElementsTree } from "./create-elements-tree";
 import { WrapperComponent } from "./wrapper-component";
 

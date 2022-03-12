@@ -1,8 +1,9 @@
 {
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2019"],
     "isolatedModules": true,
+    "module": "commonjs",
     "esModuleInterop": true,
     "jsx": "react-jsx",
     "moduleResolution": "node",
@@ -13,7 +14,7 @@
     "paths": {
       "~/*": ["./src/*"]
     },
-    // We are not using typescript compiler for building
-    "noEmit": true
+    "declaration": true,
+    "outDir": "./lib"
   }
 }

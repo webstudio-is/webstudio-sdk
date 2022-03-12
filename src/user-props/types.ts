@@ -1,4 +1,4 @@
-import type { Instance } from "~/instance";
+import type { Instance } from "../instance";
 
 export type UserProp = {
   id: string;

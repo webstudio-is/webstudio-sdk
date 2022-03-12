@@ -1,5 +1,5 @@
 import React from "react";
-import { getCssText } from "~/css";
+import { getCssText } from "../css";
 
 const criticalCssMarker = "__critical-css__";
 
