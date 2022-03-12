@@ -32,5 +32,10 @@
   },
   "dependencies": {
     "react-nano-state": "^0.4.0"
-  }
+  },
+  "files": [
+    "README.md",
+    "lib/*",
+    "!*.test.*"
+  ]
 }
