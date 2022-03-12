@@ -1,3 +1,4 @@
+import React from "react";
 import { forwardRef, type HTMLProps } from "react";
 
 export const Component = forwardRef<

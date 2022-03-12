@@ -1,4 +1,4 @@
-import { useMemo, Fragment } from "react";
+import React, { useMemo, Fragment } from "react";
 import type { OnChangeChildren } from "~/create-elements-tree";
 import { type Instance } from "~/instance";
 import * as components from "~/components";

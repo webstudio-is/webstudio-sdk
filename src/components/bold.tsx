@@ -1,3 +1,4 @@
+import React from "react";
 import { forwardRef, type ElementRef, type ComponentProps } from "react";
 
 const defaultTag = "b";
