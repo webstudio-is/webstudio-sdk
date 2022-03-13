@@ -15,7 +15,7 @@ const renderText = (text: string): Array<JSX.Element> => {
   ));
 };
 
-const renderChildren = (
+export const renderWrapperComponentChildren = (
   children: Array<JSX.Element | string> | undefined
 ): Array<JSX.Element | string | Array<JSX.Element | string>> | undefined => {
   // Some elements like input can't have children
@@ -42,11 +42,11 @@ export const WrapperComponent = ({
   ...rest
 }: WrapperComponentProps) => {
   const className = useMemo(() => createCss(css)(), [css]);
-  const { Component } = components[component];
+  const Component = components[component];
   const userProps = useUserProps(id);
   return (
     <Component {...userProps} {...rest} id={id} className={className}>
-      {renderChildren(children)}
+      {renderWrapperComponentChildren(children)}
     </Component>
   );
 };

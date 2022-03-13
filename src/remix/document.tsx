@@ -3,13 +3,13 @@ import {
   Links,
   LiveReload,
   Meta,
-  Outlet as DefaultOutlet,
+  Outlet,
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
 import { CriticalCss } from "../remix/critical-css";
 
-export const Document = ({ Outlet = DefaultOutlet } = {}) => {
+export const Document = () => {
   return (
     <html lang="en">
       <head>
