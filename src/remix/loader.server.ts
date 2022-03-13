@@ -1,8 +1,9 @@
 import { type LoaderFunction } from "@remix-run/server-runtime";
-import fs from "fs";
-import path from "path";
-
 export const loader: LoaderFunction = async () => {
+  // @todo is there a better way?
+  // When imported from webstudio package if we use import, it's gonna throw
+  const fs = require("fs");
+  const path = require("path");
   const dir = path.join(process.cwd(), ".webstudio");
   const tree = JSON.parse(fs.readFileSync(path.join(dir, "tree.json"), "utf8"));
   return {
