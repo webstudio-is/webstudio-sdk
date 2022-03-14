@@ -1,6 +1,6 @@
 {
   "name": "@webstudio-is/sdk",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Webstudio JavaScript / TypeScript API",
   "author": "Webstudio <github@webstudio.is>",
   "repository": "git@github.com:webstudio-is/webstudio-sdk.git",
@@ -10,8 +10,7 @@
     "build:mdn-data": "./bin/mdn-data.ts ./src/style",
     "build:prisma": "prisma format && prisma generate",
     "typecheck": "tsc --noEmit",
-    "build:lib": "rm -fr lib && tsc",
-    "postinstall": "prisma generate"
+    "build:lib": "rm -fr lib && tsc"
   },
   "devDependencies": {
     "@remix-run/react": "^1.2.3",
@@ -26,7 +25,8 @@
     "esbuild-node-loader": "^0.8.0",
     "mdn-data": "2.0.23",
     "react": "^17.0.2",
-    "typescript": "^4.6.2"
+    "typescript": "^4.6.2",
+    "prisma": "^3.10.0"
   },
   "peerDependencies": {
     "@remix-run/react": "^1.2.3",
@@ -37,7 +37,6 @@
     "@prisma/client": "^3.10.0",
     "@stitches/react": "^1.2.7",
     "immer": "^9.0.12",
-    "prisma": "^3.10.0",
     "react-nano-state": "^0.4.0"
   },
   "main": "lib/index.js",
@@ -45,6 +44,7 @@
   "files": [
     "README.md",
     "lib/*",
+    "generated/*",
     "!*.test.*"
   ],
   "license": "MIT",
