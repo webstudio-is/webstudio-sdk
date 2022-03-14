@@ -47,5 +47,6 @@
     "lib/*",
     "!*.test.*"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "private": false
 }
