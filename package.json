@@ -2,7 +2,7 @@
   "name": "@webstudio-is/sdk",
   "version": "0.1.0",
   "scripts": {
-    "build": "yarn build:mdn-data && yarn buidl:prisma && yarn build:lib",
+    "build": "yarn build:mdn-data && yarn build:prisma && yarn build:lib",
     "build:mdn-data": "./bin/mdn-data.ts ./src/style",
     "build:prisma": "prisma format && prisma generate",
     "typecheck": "tsc --noEmit",
@@ -10,7 +10,7 @@
   },
   "description": "Webstudio JavaScript / TypeScript API",
   "repository": "git@github.com:webstudio-is/webstudio-sdk.git",
-  "author": "Oleg Isonen <oleg@webstudio.is>",
+  "author": "Webstudio <github@webstudio.is>",
   "website": "https://webstudio.is",
   "license": "MIT",
   "devDependencies": {
