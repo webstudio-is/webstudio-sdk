@@ -2,10 +2,11 @@
   "name": "@webstudio-is/sdk",
   "version": "0.1.0",
   "scripts": {
-    "build": "yarn build:mdn-data && yarn build:lib",
-    "build:lib": "rm -fr lib && tsc",
+    "build": "yarn build:mdn-data && yarn buidl:prisma && yarn build:lib",
     "build:mdn-data": "./bin/mdn-data.ts ./src/style",
-    "typecheck": "tsc --noEmit"
+    "build:prisma": "prisma format && prisma generate",
+    "typecheck": "tsc --noEmit",
+    "build:lib": "rm -fr lib && tsc"
   },
   "description": "Webstudio JavaScript / TypeScript API",
   "repository": "git@github.com:webstudio-is/webstudio-sdk.git",
@@ -28,12 +29,14 @@
     "typescript": "^4.6.2"
   },
   "peerDependencies": {
-    "react": "^17.0.2",
     "@remix-run/react": "^1.2.3",
-    "@remix-run/server-runtime": "^1.2.3"
+    "@remix-run/server-runtime": "^1.2.3",
+    "react": "^17.0.2"
   },
   "dependencies": {
+    "@prisma/client": "^3.10.0",
     "@stitches/react": "^1.2.7",
+    "prisma": "^3.10.0",
     "react-nano-state": "^0.4.0"
   },
   "main": "lib/index.js",

@@ -1,3 +1,4 @@
+import type { InstanceProps } from "../db-types";
 import type { Instance } from "../instance";
 
 export type UserProp = {
@@ -7,11 +8,13 @@ export type UserProp = {
 };
 
 export type UserPropsUpdates = {
+  treeId: InstanceProps["treeId"];
+  propsId: InstanceProps["id"];
   instanceId: Instance["id"];
   updates: Array<UserProp>;
 };
 
 export type DeleteProp = {
-  instanceId: Instance["id"];
+  propsId: InstanceProps["id"];
   propId: UserProp["id"];
 };
