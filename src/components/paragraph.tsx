@@ -1,5 +1,4 @@
-import React from "react";
-import { forwardRef, type ElementRef, type ComponentProps } from "react";
+import React, { forwardRef, type ElementRef, type ComponentProps } from "react";
 
 const defaultTag = "p";
 
