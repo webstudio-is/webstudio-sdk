@@ -3,17 +3,19 @@ import { createValueContainer, useValue } from "react-nano-state";
 import { type Instance } from "../instance";
 import type { InstanceProps } from "../db-types";
 
-export type AllUserProps = Map<Instance["id"], InstanceProps>;
-const allUserPropsContainer = createValueContainer<AllUserProps>(new Map());
+export type AllUserProps = { [id: Instance["id"]]: InstanceProps };
+
+const allUserPropsContainer = createValueContainer<AllUserProps>({});
+
 export const useAllUserProps = (initialUserProps?: Array<InstanceProps>) => {
   useMemo(() => {
     if (initialUserProps === undefined) return;
-    const propsMap = new Map();
+    const propsMap: AllUserProps = {};
     for (const props of initialUserProps) {
-      propsMap.set(props.instanceId, props);
+      propsMap[props.instanceId] = props;
     }
     //We don't need to trigger rerender when setting the initial value
     allUserPropsContainer.value = propsMap;
-  }, [initialUserProps]);
+  }, []);
   return useValue(allUserPropsContainer);
 };

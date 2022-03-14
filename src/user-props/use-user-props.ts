@@ -3,41 +3,29 @@ import { type Instance } from "../instance";
 import { useSubscribe } from "../pubsub";
 import { type UserPropsUpdates, type UserProp } from "./types";
 import { useAllUserProps, type AllUserProps } from "./all-user-props";
-import { type InstanceProps } from "../db-types";
+import produce from "immer";
 
-// Mutating the original user props only for the preview
-// @todo need to rewrite and avoid mutation, currently it shouldn't cause side effects
-// This is done to avoid additional rerendering on canvas
-// Preview canvas component data probably needs to be automatically synchronized with changes we make through
-// fetch requests to the server to avoid doing it here and in more places later
 const mutateAllUserProps = (
   allUserProps: AllUserProps,
-  {
-    instanceId,
-    propsId,
-    treeId,
-  }: {
-    instanceId: Instance["id"];
-    propsId: InstanceProps["id"];
-    treeId: InstanceProps["treeId"];
-  },
-  update: UserProp
+  { instanceId, propsId, treeId, updates }: UserPropsUpdates
 ) => {
-  if (allUserProps.has(instanceId) === false) {
-    allUserProps.set(instanceId, {
+  if (instanceId in allUserProps === false) {
+    allUserProps[instanceId] = {
       id: propsId,
       instanceId,
       treeId,
       props: [],
-    });
+    };
   }
-  const instanceProps = allUserProps.get(instanceId)!;
-  const prop = instanceProps.props.find(({ id }) => id === update.id);
-  if (prop === undefined) {
-    instanceProps.props.push(update);
-  } else {
-    prop.prop = update.prop;
-    prop.value = update.value;
+  const instanceProps = allUserProps[instanceId];
+  for (const update of updates) {
+    const prop = instanceProps.props.find(({ id }) => id === update.id);
+    if (prop === undefined) {
+      instanceProps.props.push(update);
+    } else {
+      prop.prop = update.prop;
+      prop.value = update.value;
+    }
   }
 };
 
@@ -48,9 +36,9 @@ type UserProps = { [prop: UserProp["prop"]]: UserProp["value"] };
  * up to date with props panel.
  */
 export const useUserProps = (instanceId: Instance["id"]) => {
-  const [allUserProps] = useAllUserProps();
+  const [allUserProps, setAllUserProps] = useAllUserProps();
   const initialUserProps = useMemo(() => {
-    const userProps = allUserProps.get(instanceId);
+    const userProps = allUserProps[instanceId];
     if (userProps === undefined) return {};
     return (userProps.props as Array<UserProps>).reduce(
       (userProps, { prop, value }) => {
@@ -59,7 +47,7 @@ export const useUserProps = (instanceId: Instance["id"]) => {
       },
       {} as UserProps
     );
-  }, [allUserProps, instanceId]);
+  }, [instanceId]);
   const [userProps, setUserProps] = useState<UserProps>(initialUserProps);
 
   useSubscribe<"updateProps", UserPropsUpdates>(
@@ -69,16 +57,13 @@ export const useUserProps = (instanceId: Instance["id"]) => {
       const nextProps = { ...userProps };
       for (const update of userPropsUpdates.updates) {
         nextProps[update.prop] = update.value;
-        mutateAllUserProps(
-          allUserProps,
-          {
-            treeId: userPropsUpdates.treeId,
-            propsId: userPropsUpdates.propsId,
-            instanceId,
-          },
-          update
-        );
       }
+
+      const updatedAllUserProps = produce((draft: AllUserProps) => {
+        mutateAllUserProps(draft, userPropsUpdates);
+      })(allUserProps);
+
+      setAllUserProps(updatedAllUserProps);
       setUserProps(nextProps);
     }
   );

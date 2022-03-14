@@ -36,6 +36,7 @@
   "dependencies": {
     "@prisma/client": "^3.10.0",
     "@stitches/react": "^1.2.7",
+    "immer": "^9.0.12",
     "prisma": "^3.10.0",
     "react-nano-state": "^0.4.0"
   },
