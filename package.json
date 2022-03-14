@@ -1,6 +1,10 @@
 {
   "name": "@webstudio-is/sdk",
   "version": "0.1.0",
+  "description": "Webstudio JavaScript / TypeScript API",
+  "author": "Webstudio <github@webstudio.is>",
+  "repository": "git@github.com:webstudio-is/webstudio-sdk.git",
+  "website": "https://webstudio.is",
   "scripts": {
     "build": "yarn build:mdn-data && yarn build:prisma && yarn build:lib",
     "build:mdn-data": "./bin/mdn-data.ts ./src/style",
@@ -8,11 +12,6 @@
     "typecheck": "tsc --noEmit",
     "build:lib": "rm -fr lib && tsc"
   },
-  "description": "Webstudio JavaScript / TypeScript API",
-  "repository": "git@github.com:webstudio-is/webstudio-sdk.git",
-  "author": "Webstudio <github@webstudio.is>",
-  "website": "https://webstudio.is",
-  "license": "MIT",
   "devDependencies": {
     "@remix-run/react": "^1.2.3",
     "@remix-run/server-runtime": "^1.2.3",
@@ -46,5 +45,6 @@
     "README.md",
     "lib/*",
     "!*.test.*"
-  ]
+  ],
+  "license": "MIT"
 }
