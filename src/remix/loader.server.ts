@@ -6,7 +6,11 @@ export const loader: LoaderFunction = async () => {
   const path = require("path");
   const dir = path.join(process.cwd(), ".webstudio");
   const tree = JSON.parse(fs.readFileSync(path.join(dir, "tree.json"), "utf8"));
+  const props = JSON.parse(
+    fs.readFileSync(path.join(dir, "props.json"), "utf8")
+  );
   return {
     tree,
+    props,
   };
 };
