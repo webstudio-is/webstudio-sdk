@@ -4,7 +4,7 @@
   "description": "Webstudio JavaScript / TypeScript API",
   "author": "Webstudio <github@webstudio.is>",
   "repository": "git@github.com:webstudio-is/webstudio-sdk.git",
-  "website": "https://webstudio.is",
+  "homepage": "https://webstudio.is",
   "scripts": {
     "build": "yarn build:mdn-data && yarn build:prisma && yarn build:lib",
     "build:mdn-data": "./bin/mdn-data.ts ./src/style",
