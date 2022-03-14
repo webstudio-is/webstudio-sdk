@@ -2,7 +2,10 @@ import { useAllUserProps } from "../user-props/";
 import type { Tree, InstanceProps } from "../db-types";
 import { globalCss } from "../css";
 import { createElementsTree } from "./create-elements-tree";
-import { WrapperComponent } from "./wrapper-component";
+import {
+  WrapperComponent,
+  type WrapperComponentProps,
+} from "./wrapper-component";
 
 export type Data = {
   tree: Tree;
@@ -15,11 +18,16 @@ export const globalStyles = globalCss({
   },
 });
 
-export const Root = ({ data }: { data: Data }): JSX.Element => {
+type RootProps = {
+  data: Data;
+  Component?: (props: WrapperComponentProps) => JSX.Element;
+};
+
+export const Root = ({ data, Component }: RootProps): JSX.Element => {
   globalStyles();
   useAllUserProps(data.props);
   return createElementsTree({
     instance: data.tree.root,
-    Component: WrapperComponent,
+    Component: Component ?? WrapperComponent,
   });
 };
