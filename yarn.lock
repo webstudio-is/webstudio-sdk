@@ -9,7 +9,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@prisma/client@^3.10.0":
+"@prisma/client@3.10.0":
   version "3.10.0"
   resolved "https://registry.yarnpkg.com/@prisma/client/-/client-3.10.0.tgz#4782fe6f1b0e43c2a11a75ad4bb1098599d1dfb1"
   integrity sha512-6P4sV7WFuODSfSoSEzCH1qfmWMrCUBk1LIIuTbQf6m1LI/IOpLN4lnqGDmgiBGprEzuWobnGLfe9YsXLn0inrg==
@@ -370,7 +370,7 @@ path-exists@^4.0.0:
   resolved "https://registry.yarnpkg.com/path-exists/-/path-exists-4.0.0.tgz#513bdbe2d3b95d7762e8c1137efa195c6c61b5b3"
   integrity sha512-ak9Qy5Q7jYb2Wwcey5Fpvg2KoAc/ZIhLSLOSBmRmygPsGwkVVt0fZa0qrtMz+m6tJTAHfZQ8FnmB4MG4LWy7/w==
 
-prisma@^3.10.0:
+prisma@3.10.0:
   version "3.10.0"
   resolved "https://registry.yarnpkg.com/prisma/-/prisma-3.10.0.tgz#872d87afbeb1cbcaa77c3d6a63c125e0d704b04d"
   integrity sha512-dAld12vtwdz9Rz01nOjmnXe+vHana5PSog8t0XGgLemKsUVsaupYpr74AHaS3s78SaTS5s2HOghnJF+jn91ZrA==
