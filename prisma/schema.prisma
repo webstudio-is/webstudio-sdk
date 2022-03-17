@@ -14,11 +14,16 @@ datasource db {
 
 model Project {
   id                String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String   @db.ObjectId
   title             String
   domain            String   @unique
   prodTreeId        String?  @db.ObjectId // exists when published
   devTreeId         String   @db.ObjectId
   prodTreeIdHistory String[] @db.ObjectId
+}
+
+model User {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
 }
 
 model Tree {
