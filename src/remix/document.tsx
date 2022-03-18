@@ -3,13 +3,20 @@ import {
   Links,
   LiveReload,
   Meta,
-  Outlet,
+  Outlet as DefaultOutlet,
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
 import { CriticalCss } from "../remix/critical-css";
 
-export const Document = () => {
+/**
+ * We are using Outlet prop from designer index layout when user renders site from a subdomain.
+ */
+export const Document = ({
+  Outlet = DefaultOutlet,
+}: {
+  Outlet: typeof DefaultOutlet;
+}) => {
   return (
     <html lang="en">
       <head>
