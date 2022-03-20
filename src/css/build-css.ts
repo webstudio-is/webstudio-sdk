@@ -1,5 +1,5 @@
-import type { CSS } from "../css";
-import type { Style, StyleProperty } from "./types";
+import type { CSS } from "./css";
+import type { Style, StyleProperty } from "../style/types";
 
 /**
  * Convert a style of type Style to a CSS object that can be rendered

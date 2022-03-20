@@ -2,7 +2,7 @@ import React, { useMemo, Fragment } from "react";
 import { type Instance } from "../instance";
 import * as components from "../components";
 import { useUserProps } from "../user-props/use-user-props";
-import { type CSS, css as createCss } from "../css";
+import { type CSS, css as createCss } from "../css/css";
 import type { OnChangeChildren } from "./create-elements-tree";
 
 const renderText = (text: string): Array<JSX.Element> => {

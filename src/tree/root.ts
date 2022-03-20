@@ -1,6 +1,6 @@
 import { useAllUserProps } from "../user-props/";
 import type { Tree, InstanceProps } from "../db-types";
-import { globalCss } from "../css";
+import { globalCss } from "../css/css";
 import { createElementsTree } from "./create-elements-tree";
 import {
   WrapperComponent,
