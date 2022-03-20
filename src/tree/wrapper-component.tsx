@@ -19,6 +19,7 @@ export const renderWrapperComponentChildren = (
   children: Array<JSX.Element | string> | undefined
 ): Array<JSX.Element | string | Array<JSX.Element | string>> | undefined => {
   // Some elements like input can't have children
+  // @todo needs to be made impossible to drag element into input
   if (children === undefined || children.length === 0) return;
   return children.map((child) => {
     return typeof child === "string" ? renderText(child) : child;
