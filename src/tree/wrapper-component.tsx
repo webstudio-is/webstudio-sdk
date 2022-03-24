@@ -27,26 +27,24 @@ export const renderWrapperComponentChildren = (
 };
 
 export type WrapperComponentProps = {
-  id: Instance["id"];
-  component: Instance["component"];
+  instance: Instance;
   css: CSS;
   children: Array<JSX.Element | string>;
   onChangeChildren?: OnChangeChildren;
 };
 
 export const WrapperComponent = ({
-  component,
+  instance,
   css,
   onChangeChildren, // prevent it from passing to primitives
   children,
-  id,
   ...rest
 }: WrapperComponentProps) => {
   const className = useMemo(() => createCss(css)(), [css]);
-  const Component = components[component];
-  const userProps = useUserProps(id);
+  const Component = components[instance.component];
+  const userProps = useUserProps(instance.id);
   return (
-    <Component {...userProps} {...rest} id={id} className={className}>
+    <Component {...userProps} {...rest} id={instance.id} className={className}>
       {renderWrapperComponentChildren(children)}
     </Component>
   );

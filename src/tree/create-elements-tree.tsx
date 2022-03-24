@@ -44,12 +44,10 @@ export const createElementsTree = ({
     children.push(element);
   }
 
-  const { style, children: _children, ...rest } = instance;
-
   const props = {
-    ...rest,
+    instance,
     children,
-    css: buildCss(style),
+    css: buildCss(instance.style),
     key: instance.id,
     onChangeChildren,
   };
