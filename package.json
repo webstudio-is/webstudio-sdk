@@ -1,6 +1,6 @@
 {
   "name": "@webstudio-is/sdk",
-  "version": "0.1.18",
+  "version": "0.1.19",
   "description": "Webstudio JavaScript / TypeScript API",
   "author": "Webstudio <github@webstudio.is>",
   "repository": "git@github.com:webstudio-is/webstudio-sdk.git",
@@ -39,6 +39,7 @@
     "@prisma/client": "^3.10.0",
     "@stitches/react": "^1.2.7",
     "immer": "^9.0.12",
+    "mitt": "^3.0.0",
     "prisma": "^3.10.0",
     "react-nano-state": "^0.4.0"
   },
