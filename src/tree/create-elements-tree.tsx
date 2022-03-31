@@ -1,5 +1,5 @@
 import React from "react";
-import { buildCss } from "../style";
+import { toCss } from "../style";
 import { type Instance } from "../instance";
 import { type WrapperComponentProps } from "./wrapper-component";
 
@@ -47,7 +47,7 @@ export const createElementsTree = ({
   const props = {
     instance,
     children,
-    css: buildCss(instance.style),
+    css: toCss(instance.style),
     key: instance.id,
     onChangeChildren,
   };
