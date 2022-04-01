@@ -1,33 +1,9 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { type Instance } from "../instance";
 import { useSubscribe } from "../pubsub";
 import { type UserPropsUpdates, type UserProp } from "./types";
 import { useAllUserProps, type AllUserProps } from "./all-user-props";
 import produce from "immer";
-
-const mutateAllUserProps = (
-  allUserProps: AllUserProps,
-  { instanceId, propsId, treeId, updates }: UserPropsUpdates
-) => {
-  if (instanceId in allUserProps === false) {
-    allUserProps[instanceId] = {
-      id: propsId,
-      instanceId,
-      treeId,
-      props: [],
-    };
-  }
-  const instanceProps = allUserProps[instanceId];
-  for (const update of updates) {
-    const prop = instanceProps.props.find(({ id }) => id === update.id);
-    if (prop === undefined) {
-      instanceProps.props.push(update);
-    } else {
-      prop.prop = update.prop;
-      prop.value = update.value;
-    }
-  }
-};
 
 type UserProps = { [prop: UserProp["prop"]]: UserProp["value"] };
 
@@ -37,35 +13,29 @@ type UserProps = { [prop: UserProp["prop"]]: UserProp["value"] };
  */
 export const useUserProps = (instanceId: Instance["id"]) => {
   const [allUserProps, setAllUserProps] = useAllUserProps();
+  const propsData = allUserProps[instanceId];
+
   const initialUserProps = useMemo(() => {
-    const userProps = allUserProps[instanceId];
-    if (userProps === undefined) return {};
-    return (userProps.props as Array<UserProps>).reduce(
-      (userProps, { prop, value }) => {
-        userProps[prop] = value;
-        return userProps;
+    if (propsData === undefined) return {};
+    return (propsData.props as Array<UserProps>).reduce(
+      (props, { prop, value }) => {
+        props[prop] = value;
+        return props;
       },
       {} as UserProps
     );
-  }, [instanceId]);
-  const [userProps, setUserProps] = useState<UserProps>(initialUserProps);
+  }, [propsData]);
 
-  useSubscribe<"updateProps", UserPropsUpdates>(
-    "updateProps",
-    (userPropsUpdates) => {
-      if (userPropsUpdates.instanceId !== instanceId) return;
-      const nextProps = { ...userProps };
-      for (const update of userPropsUpdates.updates) {
-        nextProps[update.prop] = update.value;
-      }
+  const [props, setProps] = useState<UserProps>(initialUserProps);
 
-      const updatedAllUserProps = produce((draft: AllUserProps) => {
-        mutateAllUserProps(draft, userPropsUpdates);
-      })(allUserProps);
-
-      setAllUserProps(updatedAllUserProps);
-      setUserProps(nextProps);
+  useEffect(() => {
+    if (propsData == undefined) return;
+    const nextProps: UserProps = {};
+    for (const prop of propsData.props) {
+      nextProps[prop.prop] = prop.value;
     }
-  );
-  return userProps;
+    setProps(nextProps);
+  }, [propsData]);
+
+  return props;
 };

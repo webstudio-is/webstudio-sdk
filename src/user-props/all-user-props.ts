@@ -5,7 +5,7 @@ import type { InstanceProps } from "../db-types";
 
 export type AllUserProps = { [id: Instance["id"]]: InstanceProps };
 
-const allUserPropsContainer = createValueContainer<AllUserProps>({});
+export const allUserPropsContainer = createValueContainer<AllUserProps>({});
 
 export const useAllUserProps = (initialUserProps?: Array<InstanceProps>) => {
   useMemo(() => {

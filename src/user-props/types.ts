@@ -15,6 +15,6 @@ export type UserPropsUpdates = {
 };
 
 export type DeleteProp = {
-  propsId: InstanceProps["id"];
+  instanceId: Instance["id"];
   propId: UserProp["id"];
 };
