@@ -196,6 +196,8 @@ const other = [
   "minBlockSize",
   "maxInlineSize",
   "maxBlockSize",
+  "userSelect",
+  "pointerEvents",
 ] as const;
 
 export const categories = {
