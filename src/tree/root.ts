@@ -1,14 +1,16 @@
 import { useAllUserProps } from "../user-props/";
 import type { Tree, InstanceProps } from "../db-types";
-import { globalCss } from "../css/css";
+import { globalCss, setBreakpoints } from "../stitches";
 import { createElementsTree } from "./create-elements-tree";
 import {
   WrapperComponent,
   type WrapperComponentProps,
 } from "./wrapper-component";
+import { type Breakpoint } from "../css";
 
 export type Data = {
   tree: Tree;
+  breakpoints: Array<Breakpoint>;
   props: Array<InstanceProps>;
 };
 
@@ -24,10 +26,12 @@ type RootProps = {
 };
 
 export const Root = ({ data, Component }: RootProps): JSX.Element => {
+  setBreakpoints(data.breakpoints);
   globalStyles();
   useAllUserProps(data.props);
   return createElementsTree({
     instance: data.tree.root,
+    breakpoints: data.breakpoints,
     Component: Component ?? WrapperComponent,
   });
 };

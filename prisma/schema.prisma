@@ -43,3 +43,11 @@ type Props {
   prop  String
   value String
 }
+
+model Breakpoint {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  projectId String @db.ObjectId
+  ref       String
+  label     String
+  minWidth  Int
+}

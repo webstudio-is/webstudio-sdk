@@ -4,7 +4,7 @@ import { definitionSyntax, type DSNode } from "css-tree";
 import properties from "mdn-data/css/properties.json";
 import units from "mdn-data/css/units.json";
 import syntaxes from "mdn-data/css/syntaxes.json";
-import type { StyleValue } from "~/style";
+import type { StyleValue } from "../src/css";
 import { popularityIndex } from "./popularity-index";
 
 import camelCase from "camelcase";

@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 import { createValueContainer, useValue } from "react-nano-state";
-import { type Instance } from "../instance";
-import type { InstanceProps } from "../db-types";
+import type { InstanceProps, Instance } from "../db-types";
 
 export type AllUserProps = { [id: Instance["id"]]: InstanceProps };
 
