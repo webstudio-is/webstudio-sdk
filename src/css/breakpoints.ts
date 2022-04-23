@@ -9,8 +9,8 @@ export const defaultBreakpoint: Breakpoint = {
 };
 
 export const initialBreakpoints: Array<Breakpoint> = [
-  { label: "Desktop Large", minWidth: 1200, ref: "desktop-large" },
-  { label: "Desktop", minWidth: 992, ref: "desktop" },
+  { label: "Desktop", minWidth: 1280, ref: "desktop" },
+  { label: "Laptop", minWidth: 1024, ref: "laptop" },
   { label: "Tablet", minWidth: 768, ref: "tablet" },
   { label: "Mobile", minWidth: 360, ref: "mobile" },
   defaultBreakpoint,
