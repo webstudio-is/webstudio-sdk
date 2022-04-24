@@ -19,11 +19,4 @@ type Tree = {
   root: Instance;
 };
 
-export type {
-  InstanceProps,
-  Project,
-  User,
-  Instance,
-  Tree,
-  Breakpoint as DbBreakpoint,
-};
+export type { InstanceProps, Project, User, Instance, Tree, Breakpoint };

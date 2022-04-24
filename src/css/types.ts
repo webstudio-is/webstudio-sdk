@@ -1,6 +1,6 @@
 import { units } from "./units";
 import { properties } from "./properties";
-import type { Breakpoint } from "./breakpoints";
+import type { Breakpoint } from "../db-types";
 
 type Properties = typeof properties;
 

@@ -1,12 +1,11 @@
 import { useAllUserProps } from "../user-props/";
-import type { Tree, InstanceProps } from "../db-types";
+import type { Tree, InstanceProps, Breakpoint } from "../db-types";
 import { globalCss, setBreakpoints } from "../stitches";
 import { createElementsTree } from "./create-elements-tree";
 import {
   WrapperComponent,
   type WrapperComponentProps,
 } from "./wrapper-component";
-import { type Breakpoint } from "../css";
 
 export type Data = {
   tree: Tree;

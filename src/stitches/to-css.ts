@@ -3,9 +3,9 @@ import {
   type StyleProperty,
   type StyleValue,
   type CssRule,
-  type Breakpoint,
   defaultBreakpoint,
 } from "../css";
+import type { Breakpoint } from "../db-types";
 
 export const toValue = (value: StyleValue): string => {
   if (value.type === "unit") {
