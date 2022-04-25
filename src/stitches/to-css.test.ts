@@ -2,11 +2,13 @@ import type { Breakpoint } from "../db-types";
 import { type CssRule, initialBreakpoints } from "../css";
 import { toCss } from "./to-css";
 
-const breakpoints: Array<Breakpoint> = initialBreakpoints.map((breakpoint) => ({
-  ...breakpoint,
-  id: "000",
-  projectId: "111",
-}));
+const breakpoints: Array<Breakpoint> = initialBreakpoints.map(
+  (breakpoint, index) => ({
+    ...breakpoint,
+    id: String(index),
+    projectId: "projectId",
+  })
+);
 
 describe("Convert WS CSS rules to stitches", () => {
   test("basic", () => {
@@ -18,12 +20,12 @@ describe("Convert WS CSS rules to stitches", () => {
             value: "red",
           },
         },
-        breakpoint: "default",
+        breakpoint: "0",
       },
     ];
     const stitchesCss = toCss(cssRules, breakpoints);
     expect(stitchesCss).toEqual({
-      "@default": {
+      "@0": {
         color: "red",
       },
     });
@@ -38,7 +40,7 @@ describe("Convert WS CSS rules to stitches", () => {
             value: "green",
           },
         },
-        breakpoint: "tablet",
+        breakpoint: "0",
       },
 
       {
@@ -48,7 +50,7 @@ describe("Convert WS CSS rules to stitches", () => {
             value: "blue",
           },
         },
-        breakpoint: "desktop",
+        breakpoint: "1",
       },
       {
         style: {
@@ -57,15 +59,11 @@ describe("Convert WS CSS rules to stitches", () => {
             value: "red",
           },
         },
-        breakpoint: "default",
+        breakpoint: "2",
       },
     ];
 
     const stitchesCss = toCss(cssRules, breakpoints);
-    expect(Object.keys(stitchesCss)).toStrictEqual([
-      "@default",
-      "@tablet",
-      "@desktop",
-    ]);
+    expect(Object.keys(stitchesCss)).toStrictEqual(["@2", "@1", "@0"]);
   });
 });

@@ -14,7 +14,7 @@ export type Style = {
 
 export type CssRule = {
   style: Style;
-  breakpoint: Breakpoint["ref"];
+  breakpoint: Breakpoint["id"];
 };
 
 export type Unit = typeof units[number] | "number";

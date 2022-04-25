@@ -33,7 +33,7 @@ export const getCssText = (): string => {
 export const setBreakpoints = (breakpoints: Array<Breakpoint>) => {
   const nextMedia: Record<string, string> = {};
   for (const breakpoint of breakpoints) {
-    nextMedia[breakpoint.ref] = `(min-width: ${breakpoint.minWidth}px)`;
+    nextMedia[breakpoint.id] = `(min-width: ${breakpoint.minWidth}px)`;
   }
   media = nextMedia;
 };

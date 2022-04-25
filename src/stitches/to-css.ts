@@ -1,10 +1,5 @@
 import type { CSS } from "./css";
-import {
-  type StyleProperty,
-  type StyleValue,
-  type CssRule,
-  defaultBreakpoint,
-} from "../css";
+import { type StyleProperty, type StyleValue, type CssRule } from "../css";
 import type { Breakpoint } from "../db-types";
 
 export const toValue = (value: StyleValue): string => {
@@ -23,14 +18,14 @@ export const toCss = (
 ): CSS => {
   const css: CSS = {};
 
-  const breakpointsMap: Record<Breakpoint["ref"], number> = {};
+  const breakpointsMap: Record<Breakpoint["id"], number> = {};
   for (const breakpoint of breakpoints) {
-    breakpointsMap[breakpoint.ref] = breakpoint.minWidth;
+    breakpointsMap[breakpoint.id] = breakpoint.minWidth;
   }
 
   const sortedCssRules = [...cssRules].sort((ruleA, ruleB) => {
     // If a rule references a breakpoint that was not found in breakpoints,
-    // we must have removed the breakpoint and now we fall back to the defult breakpoint.
+    // we must have removed the breakpoint and now we fall back to 0.
     const maxWidthA = breakpointsMap[ruleA.breakpoint] ?? 0;
     const maxWidthB = breakpointsMap[ruleB.breakpoint] ?? 0;
     return maxWidthA - maxWidthB;
@@ -44,11 +39,12 @@ export const toCss = (
       style[property] = toValue(value);
     }
 
-    const ref =
-      cssRule.breakpoint in breakpointsMap
-        ? cssRule.breakpoint
-        : defaultBreakpoint.ref;
-    css["@" + ref] = style;
+    if (cssRule.breakpoint in breakpointsMap) {
+      css["@" + cssRule.breakpoint] = style;
+      continue;
+    }
+
+    Object.assign(css, style);
   }
   return css;
 };
