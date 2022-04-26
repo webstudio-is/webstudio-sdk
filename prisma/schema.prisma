@@ -44,9 +44,13 @@ type Props {
   value String
 }
 
-model Breakpoint {
-  id        String @id @default(auto()) @map("_id") @db.ObjectId
-  projectId String @db.ObjectId
-  label     String
-  minWidth  Int
+model Breakpoints {
+  projectId String       @id @default(auto()) @map("_id") @db.ObjectId
+  values    Breakpoint[]
+}
+
+type Breakpoint {
+  id       String @db.ObjectId
+  label    String
+  minWidth Int
 }
