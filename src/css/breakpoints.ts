@@ -9,15 +9,3 @@ export const initialBreakpoints: Array<BaseBreakpoint> = [
   { label: "Mobile", minWidth: 360 },
   { label: "Default", minWidth: 0 },
 ];
-
-/**
- * Sort by minWidth descending.
- * We want media querries with bigger minWidth to override the smaller once.
- */
-export const sort = <Object extends { minWidth: number }>(
-  breakpoints: Array<Object>
-) => {
-  return [...breakpoints].sort((breakpointA, breakpointB) => {
-    return breakpointB.minWidth - breakpointA.minWidth;
-  });
-};
