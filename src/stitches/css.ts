@@ -36,4 +36,5 @@ export const setBreakpoints = (breakpoints: Array<Breakpoint>) => {
     nextMedia[breakpoint.id] = `(min-width: ${breakpoint.minWidth}px)`;
   }
   media = nextMedia;
+  stitches = undefined;
 };
