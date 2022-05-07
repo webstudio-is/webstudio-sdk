@@ -40,7 +40,7 @@ describe("Convert WS CSS rules to stitches", () => {
             value: "green",
           },
         },
-        breakpoint: "0",
+        breakpoint: "2",
       },
 
       {
@@ -50,7 +50,7 @@ describe("Convert WS CSS rules to stitches", () => {
             value: "blue",
           },
         },
-        breakpoint: "1",
+        breakpoint: "0",
       },
       {
         style: {
@@ -59,11 +59,11 @@ describe("Convert WS CSS rules to stitches", () => {
             value: "red",
           },
         },
-        breakpoint: "2",
+        breakpoint: "1",
       },
     ];
 
     const stitchesCss = toCss(cssRules, breakpoints);
-    expect(Object.keys(stitchesCss)).toStrictEqual(["@2", "@1", "@0"]);
+    expect(Object.keys(stitchesCss)).toStrictEqual(["@0", "@1", "@2"]);
   });
 });
