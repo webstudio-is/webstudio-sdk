@@ -1,6 +1,6 @@
 import React from "react";
-import { toCss } from "../style";
-import { type Instance } from "../instance";
+import { toCss } from "../stitches";
+import type { Instance, Breakpoint } from "../db-types";
 import { type WrapperComponentProps } from "./wrapper-component";
 
 export type ChildrenUpdates = Array<
@@ -23,10 +23,12 @@ export type OnChangeChildren = (change: {
 
 export const createElementsTree = ({
   instance,
+  breakpoints,
   Component,
   onChangeChildren,
 }: {
   instance: Instance;
+  breakpoints: Array<Breakpoint>;
   Component: (props: WrapperComponentProps) => JSX.Element;
   onChangeChildren?: OnChangeChildren;
 }): JSX.Element => {
@@ -38,6 +40,7 @@ export const createElementsTree = ({
         ? child
         : createElementsTree({
             instance: child,
+            breakpoints,
             Component,
             onChangeChildren,
           });
@@ -47,7 +50,7 @@ export const createElementsTree = ({
   const props = {
     instance,
     children,
-    css: toCss(instance.style),
+    css: toCss(instance.cssRules, breakpoints),
     key: instance.id,
     onChangeChildren,
   };

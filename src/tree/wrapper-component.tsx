@@ -1,8 +1,8 @@
 import React, { useMemo, Fragment } from "react";
-import { type Instance } from "../instance";
+import type { Instance } from "../db-types";
 import * as components from "../components";
 import { useUserProps } from "../user-props/use-user-props";
-import { type CSS, css as createCss } from "../css/css";
+import { type CSS, css as createCss } from "../stitches";
 import type { OnChangeChildren } from "./create-elements-tree";
 
 const renderText = (text: string): Array<JSX.Element> => {

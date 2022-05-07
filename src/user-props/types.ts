@@ -1,5 +1,4 @@
-import type { InstanceProps } from "../db-types";
-import type { Instance } from "../instance";
+import type { InstanceProps, Instance } from "../db-types";
 
 export type UserProp = {
   id: string;
