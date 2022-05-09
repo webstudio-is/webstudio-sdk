@@ -45,8 +45,8 @@ type Props {
 }
 
 model Breakpoints {
-  projectId String       @id @default(auto()) @map("_id") @db.ObjectId
-  values    Breakpoint[]
+  treeId String       @id @default(auto()) @map("_id") @db.ObjectId
+  values Breakpoint[]
 }
 
 type Breakpoint {

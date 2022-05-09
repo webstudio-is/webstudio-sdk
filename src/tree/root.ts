@@ -8,7 +8,7 @@ import {
 } from "./wrapper-component";
 
 export type Data = {
-  tree: Tree;
+  tree: Tree | null;
   breakpoints: Array<Breakpoint>;
   props: Array<InstanceProps>;
 };
@@ -24,7 +24,10 @@ type RootProps = {
   Component?: (props: WrapperComponentProps) => JSX.Element;
 };
 
-export const Root = ({ data, Component }: RootProps): JSX.Element => {
+export const Root = ({ data, Component }: RootProps): JSX.Element | null => {
+  if (data.tree === null) {
+    throw new Error("Tree is null");
+  }
   setBreakpoints(data.breakpoints);
   globalStyles();
   useAllUserProps(data.props);
