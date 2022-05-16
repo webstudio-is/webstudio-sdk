@@ -3,6 +3,7 @@ import type {
   Project,
   User,
   Breakpoint,
+  Props,
 } from "../generated/prisma-client";
 import type { CssRule } from "./css";
 import * as components from "./components";
@@ -19,4 +20,4 @@ type Tree = {
   root: Instance;
 };
 
-export type { InstanceProps, Project, User, Instance, Tree, Breakpoint };
+export type { InstanceProps, Project, User, Instance, Tree, Breakpoint, Props };
