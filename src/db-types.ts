@@ -1,10 +1,10 @@
-import type {
+import {
   InstanceProps,
   Project,
   User,
   Breakpoint,
   Props,
-} from "../generated/prisma-client";
+} from "@prisma/client";
 import type { CssRule } from "./css";
 import * as components from "./components";
 

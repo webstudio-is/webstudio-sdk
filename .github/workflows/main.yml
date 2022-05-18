@@ -22,4 +22,5 @@ jobs:
           key: ${{ runner.os }}-${{ runner.node }}-${{ hashFiles('**/yarn.lock') }}-nextjs
 
       - run: yarn typecheck
+      - run: yarn test
       - run: yarn build

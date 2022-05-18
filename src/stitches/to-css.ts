@@ -1,7 +1,6 @@
 import type { CSS } from "./css";
 import { type StyleProperty, type StyleValue, type CssRule } from "../css";
 import type { Breakpoint } from "../db-types";
-import { Breakpoints } from "generated/prisma-client";
 
 export const toValue = (value: StyleValue): string => {
   if (value.type === "unit") {
