@@ -3,13 +3,13 @@ import { createValueContainer, useValue } from "react-nano-state";
 import type { InstanceProps, Instance, Props } from "../db-types";
 
 export type AllUserProps = {
-  [id: Instance["id"]]: InstanceProps & { props?: any };
+  [id: Instance["id"]]: InstanceProps & { props: Props[] };
 };
 
 export const allUserPropsContainer = createValueContainer<AllUserProps>({});
 
 export const useAllUserProps = (
-  initialUserProps?: Array<InstanceProps & { props?: any }>
+  initialUserProps?: Array<InstanceProps & { props: Props[] }>
 ) => {
   useMemo(() => {
     if (initialUserProps === undefined) return;

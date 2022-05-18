@@ -1,5 +1,5 @@
 import { useAllUserProps } from "../user-props/";
-import type { Tree, InstanceProps, Breakpoint } from "../db-types";
+import type { Tree, InstanceProps, Breakpoint, Props } from "../db-types";
 import { globalCss, setBreakpoints } from "../stitches";
 import { createElementsTree } from "./create-elements-tree";
 import {
@@ -10,7 +10,7 @@ import {
 export type Data = {
   tree: Tree | null;
   breakpoints: Array<Breakpoint>;
-  props: Array<InstanceProps>;
+  props: Array<InstanceProps & { props: Props[] }>;
 };
 
 export const globalStyles = globalCss({
