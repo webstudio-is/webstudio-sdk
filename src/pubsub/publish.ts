@@ -1,9 +1,13 @@
 import { useRef, useCallback, MutableRefObject } from "react";
 
-export type Publish = <Type, Payload = undefined>(action: {
+type Action<Type, Payload> = {
   type: Type;
   payload?: Payload;
-}) => void;
+};
+
+export type Publish = <Type, Payload = undefined>(
+  action: Action<Type, Payload>
+) => void;
 
 type UsePublish = [Publish, MutableRefObject<HTMLIFrameElement | null>];
 
@@ -12,7 +16,7 @@ type UsePublish = [Publish, MutableRefObject<HTMLIFrameElement | null>];
  */
 export const usePublish = (): UsePublish => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  const publish = useCallback(
+  const publishCallback: Publish = useCallback(
     (action) => {
       const element = iframeRef.current;
       if (element?.contentWindow == null) return;
@@ -21,16 +25,15 @@ export const usePublish = (): UsePublish => {
     },
     [iframeRef]
   );
-  return [publish, iframeRef];
+  return [publishCallback, iframeRef];
 };
 
 /**
  * To publish a postMessage event on the current window and parent window from the iframe.
  */
-export const publish = <Type extends string, Payload = undefined>(action: {
-  type: Type;
-  payload?: Payload;
-}) => {
+export const publish = <Type extends string, Payload = undefined>(
+  action: Action<Type, Payload>
+) => {
   window.parent.postMessage(action, "*");
   window.postMessage(action, "*");
 };
