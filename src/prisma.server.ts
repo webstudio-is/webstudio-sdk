@@ -1,2 +1,2 @@
-export { PrismaClient, Prisma } from "../generated/prisma-client";
+export { PrismaClient, Prisma } from "@prisma/client";
 export { PrismaClientKnownRequestError } from "@prisma/client/runtime";
