@@ -1,16 +1,12 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Button } from "./button";
+import type { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Button as ButtonPrimitive } from "./button";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Components/Button",
-  component: Button,
-  description: "test",
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+  component: ButtonPrimitive,
   argTypes: {
     children: {
-      name: "textContent",
       control: "text",
     },
     type: {
@@ -98,13 +94,13 @@ export default {
       control: "text",
     },
   },
-} as ComponentMeta<typeof Button>;
+} as ComponentMeta<typeof ButtonPrimitive>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: ComponentStory<typeof ButtonPrimitive> = (args) => (
+  <ButtonPrimitive {...args} />
+);
 
-export const Submit = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Submit.args = {
-  children: "Submit",
+export const Button = Template.bind({});
+Button.args = {
+  children: "Button",
 };
