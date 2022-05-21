@@ -11,20 +11,13 @@ datasource db {
 }
 
 model Project {
-  id                String    @id @default(uuid())
+  id                String  @id @default(uuid())
   userId            String
   title             String
-  domain            String    @unique
+  domain            String  @unique
   prodTreeId        String? // exists when published
   devTreeId         String
-  prodTreeIdHistory History[]
-}
-
-model History {
-  id        String   @id @default(uuid())
-  entry     String
-  Project   Project? @relation(fields: [projectId], references: [id])
-  projectId String?
+  prodTreeIdHistory String
 }
 
 model User {
@@ -37,29 +30,25 @@ model Tree {
 }
 
 model InstanceProps {
-  id         String  @id @default(uuid())
+  id         String @id @default(uuid())
   instanceId String
   treeId     String
-  props      Props[]
+  props      String
 }
 
-model Props {
-  id              String         @id @default(uuid())
-  prop            String
-  value           String
-  InstanceProps   InstanceProps? @relation(fields: [instancePropsId], references: [id])
-  instancePropsId String?
-}
+// type Props {
+//   id    String @db.ObjectId
+//   prop  String
+//   value String
+// }
 
 model Breakpoints {
-  treeId String       @id @default(uuid())
-  values Breakpoint[]
+  treeId String @id @default(uuid())
+  values String
 }
 
-model Breakpoint {
-  id                String       @id @default(uuid())
-  label             String
-  minWidth          Int
-  Breakpoints       Breakpoints? @relation(fields: [breakpointsTreeId], references: [treeId])
-  breakpointsTreeId String?
-}
+// type Breakpoint {
+//   id       String @db.ObjectId
+//   label    String
+//   minWidth Int
+// }
