@@ -10,15 +10,18 @@ type UserProps = { [prop: UserProp["prop"]]: UserProp["value"] };
  * up to date with props panel.
  */
 export const useUserProps = (instanceId: Instance["id"]) => {
-  const [allUserProps] = useAllUserProps();
+  const [allUserProps, setAllUserProps] = useAllUserProps();
   const propsData = allUserProps[instanceId];
 
   const initialUserProps = useMemo(() => {
     if (propsData === undefined) return {};
-    return propsData.props.reduce((props, { prop, value }) => {
-      props[prop] = value;
-      return props;
-    }, {} as UserProps);
+    return (propsData.props as Array<UserProps>).reduce(
+      (props, { prop, value }) => {
+        props[prop] = value;
+        return props;
+      },
+      {} as UserProps
+    );
   }, [propsData]);
 
   const [props, setProps] = useState<UserProps>(initialUserProps);

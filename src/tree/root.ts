@@ -7,21 +7,10 @@ import {
   type WrapperComponentProps,
 } from "./wrapper-component";
 
-export type InstanceChildrenProps = {
-  id: string;
-  prop: string;
-  value: string;
-  instancePropsId?: string | null;
-};
-
-export type ElementProps = InstanceProps & {
-  props: InstanceChildrenProps[];
-};
-
 export type Data = {
   tree: Tree | null;
   breakpoints: Array<Breakpoint>;
-  props: Array<ElementProps>;
+  props: Array<InstanceProps>;
 };
 
 export const globalStyles = globalCss({

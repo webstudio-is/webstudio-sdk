@@ -14,7 +14,7 @@ export const toValue = (value: StyleValue): string => {
  */
 export const toCss = (
   cssRules: Array<CssRule>,
-  breakpoints: Array<Omit<Breakpoint, "breakpointsTreeId">>
+  breakpoints: Array<Breakpoint>
 ): CSS => {
   const css: CSS = {};
 

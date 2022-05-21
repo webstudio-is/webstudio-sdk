@@ -2,12 +2,13 @@ import type { Breakpoint } from "../db-types";
 import { type CssRule, initialBreakpoints } from "../css";
 import { toCss } from "./to-css";
 
-const breakpoints: Array<Omit<Breakpoint, "breakpointsTreeId">> =
-  initialBreakpoints.map((breakpoint, index) => ({
+const breakpoints: Array<Breakpoint> = initialBreakpoints.map(
+  (breakpoint, index) => ({
     ...breakpoint,
     id: String(index),
     projectId: "projectId",
-  }));
+  })
+);
 
 describe("Convert WS CSS rules to stitches", () => {
   test("basic", () => {
