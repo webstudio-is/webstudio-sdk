@@ -42,7 +42,7 @@ export default {
         "A string reflecting the URI of a resource that processes information submitted by the button. If specified, this attribute overrides the action attribute of the <form> element that owns this element.",
       control: "text",
     },
-    formEnctype: {
+    formEncType: {
       description:
         "A string reflecting the type of content that is used to submit the form to the server. If specified, this attribute overrides the enctype attribute of the <form> element that owns this element.",
       defaultValue: "application/x-www-form-urlencoded",
