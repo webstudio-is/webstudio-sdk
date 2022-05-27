@@ -10,6 +10,17 @@ export default {
     children: {
       control: "text",
     },
+    type: {
+      defaultValue: "submit",
+      control: "radio",
+      options: ["submit", "reset", "button"],
+      description: [
+        "A string indicating the behavior of the button. This is an enumerated attribute with the following possible values:",
+        "submit: The button submits the form. This is the default value if the attribute is not specified, or if it is dynamically changed to an empty or invalid value.",
+        "reset: The button resets the form.",
+        "button: The button does nothing.",
+      ].join("\n"),
+    },
     ...globalArgTypes,
   },
 } as ComponentMeta<typeof ButtonPrimitive>;
