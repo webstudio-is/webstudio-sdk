@@ -1,7 +1,10 @@
-import React, { forwardRef, type HTMLProps } from "react";
+import React, { forwardRef, type ElementRef, type ComponentProps } from "react";
 
-export const Box = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>(
-  (props, ref) => <div {...props} ref={ref} />
-);
+const defaultTag = "div";
+
+export const Box = forwardRef<
+  ElementRef<typeof defaultTag>,
+  ComponentProps<typeof defaultTag>
+>((props, ref) => <div {...props} ref={ref} />);
 
 Box.displayName = "Box";
