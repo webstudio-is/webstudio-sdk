@@ -15,7 +15,7 @@ export const useUserProps = (instanceId: Instance["id"]) => {
 
   const initialUserProps = useMemo(() => {
     if (propsData === undefined) return {};
-    return (propsData.props as Array<UserProps>).reduce(
+    return propsData.props.reduce(
       (props, { prop, value }) => {
         props[prop] = value;
         return props;
