@@ -11,10 +11,8 @@ const validAttributes = (prop: PropItem) => {
 }
 
 export const propsToArgTypes = (props: Record<string, PropItem>, filter?: FilterPredicate): ArgTypes => {
-    console.log(props);
     const filterFn = filter ?? validAttributes
     const entries = Object.entries(props);
-    entries.forEach(([_, prop]) => console.log(prop.parent?.name))
     return entries
         .reduce((result, current) => {
             const [propName, prop] = current
