@@ -5,13 +5,9 @@ export type FilterPredicate = (prop: PropItem) => boolean
 
 const validAttributes = (prop: PropItem) => {
     if (prop.parent) {
-        // return ['ButtonHTMLAttributes', 'HTMLAttributes', 'AriaAttributes'].includes(prop.parent.name)
         return ['ButtonHTMLAttributes', 'HTMLAttributes', 'AriaAttributes'].includes(prop.parent.name)
     }
     return true
-    // return prop.declarations?.some(decl => {
-    //     return decl.name.includes('HTMLAttributes');
-    // })
 }
 
 export const propsToArgTypes = (props: Record<string, PropItem>, filter?: FilterPredicate): ArgTypes => {
@@ -20,9 +16,6 @@ export const propsToArgTypes = (props: Record<string, PropItem>, filter?: Filter
     const entries = Object.entries(props);
     entries.forEach(([_, prop]) => console.log(prop.parent?.name))
     return entries
-        // .filter(validHTMLAttributes)
-        // .filter(AriaAttributes)
-        // .filter(onlyOwnProps)
         .reduce((result, current) => {
             const [propName, prop] = current
 
@@ -52,7 +45,6 @@ export const mapControlForType = (propItem: PropItem): any => {
     if (matchers.color && matchers.color.test(name)) {
         const controlType = propItem.type.name;
 
-        console.log(11111);
         if (controlType === 'string') {
             return { control: { type: 'color' }, defaultValue: propItem.defaultValue?.value };
         }
