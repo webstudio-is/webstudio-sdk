@@ -12,6 +12,7 @@
     "typecheck": "tsc --noEmit",
     "build:lib": "rm -fr lib && tsc",
     "postinstall": "prisma generate",
+    "generate:args": "./bin/generateArgTypes.ts",
     "test": "jest",
     "checks": "yarn typecheck && yarn test",
     "prepublishOnly": "yarn typecheck && yarn build",

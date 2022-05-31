@@ -1,13 +1,12 @@
 import React from "react";
 import type { ComponentMeta, ComponentStory } from "@storybook/react";
-import { propsToArgTypes } from "../arg-types/utils";
 import { Button } from "./button";
-import props from "!!../arg-types/loader!./button"
+import argTypes from "./button.props.json"
 
 export default {
   title: "Components/Button",
   component: Button,
-  argTypes: propsToArgTypes(props),
+  argTypes,
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => (
@@ -17,5 +16,5 @@ const Template: ComponentStory<typeof Button> = (args) => (
 export const Example = Template.bind({});
 
 Example.args = {
-  children: "A Button"
+  children: "Test"
 };
