@@ -5,8 +5,12 @@ export type FilterPredicate = (prop: PropItem) => boolean
 
 const validAttributes = (prop: PropItem) => {
     if (prop.parent) {
-        return ['ButtonHTMLAttributes', 'HTMLAttributes', 'AriaAttributes'].includes(prop.parent.name)
+        // Pass *HTML (both ButtonHTMLAttributes and HTMLAttributes), Aria, and SVG attributes through
+        const matcher = /.?(HTML|SVG|Aria)Attributes/;
+        // TODO: Add a test for this
+        return prop.parent.name.match(matcher);
     }
+    // Always allow component's own props
     return true
 }
 
