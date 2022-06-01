@@ -39,6 +39,6 @@ componentFiles.forEach(filePath => {
     const res = tsConfigParser.parse(filePath)
     const argTypes = propsToArgTypes(res[0].props)
     fs.ensureFileSync(jsonPath)
-    fs.writeJsonSync(jsonPath, argTypes)
-    console.log(`Done generating ${jsonPath}`)
+    fs.writeJsonSync(jsonPath, argTypes, {spaces: 2})
+    console.log(`Done generating argTypes for ${jsonPath}`)
 })
