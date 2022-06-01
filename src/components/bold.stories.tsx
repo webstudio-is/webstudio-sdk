@@ -6,7 +6,7 @@ import argTypes from "./bold.props.json"
 export default {
   title: "Components/Bold",
   component: BoldPrimitive,
-  argTypes: {},
+  argTypes,
 } as ComponentMeta<typeof BoldPrimitive>;
 
 const Template: ComponentStory<typeof BoldPrimitive> = (args) => (
