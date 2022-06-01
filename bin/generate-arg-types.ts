@@ -6,18 +6,32 @@ import fg from "fast-glob"
 import fs from "fs-extra"
 import {propsToArgTypes} from "../src/arg-types/utils";
 
-const tsConfigPath = path.resolve("./tsconfig.json")
-
 const options = {
     shouldExtractLiteralValuesFromEnum: true,
     shouldRemoveUndefinedFromOptional: true,
 }
 
-// Create a parser with using your typescript config
-const tsConfigParser = docgen.withCustomConfig(tsConfigPath, options);
+const componentsGlobString = process.argv.pop();
+const tsConfigPath = path.resolve(process.cwd(), "./tsconfig.json");
+
+if (typeof componentsGlobString === "undefined") {
+    throw new Error("Please provide glob patterns (space separated) as arguments to match your components");
+}
 
 // Search for components
-const componentFiles = fg.sync(['./src/components/*.tsx', '!./src/**/*.stories.tsx']);
+const globs = componentsGlobString.split(" ");
+const componentFiles = fg.sync(globs);
+
+console.log(`Resolved tscofig.json at ${tsConfigPath}\n`);
+console.log(`Glob patterns used: \n${globs.join('\n')}\n`)
+console.log(`Found files to process: \n${componentFiles.join('\n')}\n`)
+
+if (componentFiles.length === 0) {
+    throw new Error("No component files found");
+}
+
+// Create a parser with using your typescript config
+const tsConfigParser = docgen.withCustomConfig(tsConfigPath, options);
 
 // For each component file generate argTypes based on the propTypes
 componentFiles.forEach(filePath => {
