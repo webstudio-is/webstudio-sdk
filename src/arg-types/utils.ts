@@ -69,7 +69,7 @@ export const mapControlForType = (propItem: PropItem): any => {
             return {control: {type: 'number'}};
         case 'enum': {
             const {value} = type;
-            // @ts-ignore
+            // @ts-expect-error Original type has `any` type
             const values = value.map(val => val.value)
             return {control: {type: values?.length <= 5 ? 'radio' : 'select'}, options: values};
         }
