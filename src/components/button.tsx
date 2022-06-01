@@ -1,8 +1,10 @@
-import React, { forwardRef, type HTMLProps } from "react";
+import React, { forwardRef, type ElementRef, type ComponentProps } from "react";
+
+const defaultTag = "button";
 
 export const Button = forwardRef<
-  HTMLButtonElement,
-  HTMLProps<HTMLButtonElement>
->((props, ref) => <button {...props} type="submit" ref={ref} />);
+  ElementRef<typeof defaultTag>,
+  ComponentProps<typeof defaultTag>
+>((props, ref) => <button {...props} ref={ref} />);
 
 Button.displayName = "Button";
