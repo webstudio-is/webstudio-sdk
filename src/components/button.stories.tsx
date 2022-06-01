@@ -1,20 +1,20 @@
 import React from "react";
 import type { ComponentMeta, ComponentStory } from "@storybook/react";
-import { Button } from "./button";
-import argTypes from "./button.props.json"
+import { Button as ButtonPrimitive } from "./button";
+import argTypes from "./button.props.json";
 
 export default {
   title: "Components/Button",
-  component: Button,
+  component: ButtonPrimitive,
   argTypes,
-} as ComponentMeta<typeof Button>;
+} as ComponentMeta<typeof ButtonPrimitive>;
 
-const Template: ComponentStory<typeof Button> = (args) => (
-  <Button {...args} />
+const Template: ComponentStory<typeof ButtonPrimitive> = (args) => (
+  <ButtonPrimitive {...args} />
 );
 
-export const Example = Template.bind({});
+export const Button = Template.bind({});
 
-Example.args = {
-  children: "Test"
+Button.args = {
+  children: "Test",
 };
