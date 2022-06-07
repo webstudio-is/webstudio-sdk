@@ -2,8 +2,8 @@ import type {
   InstanceProps as DbInstanceProps,
   Project,
   User,
-  Breakpoint,
-} from "../generated/prisma-client";
+  Breakpoints,
+} from "@prisma/client";
 import type { CssRule } from "./css";
 import * as components from "./components";
 import { UserProp } from "./user-props";
@@ -20,8 +20,30 @@ type Tree = {
   root: Instance;
 };
 
-type InstanceProps = Omit<DbInstanceProps, "props"> & {
-  props: Array<UserProp>;
+type Breakpoint = {
+  id: string;
+  label: string;
+  minWidth: number;
 };
 
-export type { InstanceProps, Project, User, Instance, Tree, Breakpoint };
+type Props = {
+  id: string;
+  prop: string;
+  value: string;
+};
+
+type InstanceProps = Omit<DbInstanceProps, "props"> & {
+  props: Props[];
+};
+
+export type {
+  InstanceProps,
+  DbInstanceProps,
+  Project,
+  User,
+  Instance,
+  Tree,
+  Breakpoints,
+  Breakpoint,
+  Props,
+};

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { type Instance } from "../db-types";
+import { Props, type Instance } from "../db-types";
 import { type UserProp } from "./types";
 import { useAllUserProps } from "./all-user-props";
 
@@ -12,16 +12,12 @@ type UserProps = { [prop: UserProp["prop"]]: UserProp["value"] };
 export const useUserProps = (instanceId: Instance["id"]) => {
   const [allUserProps, setAllUserProps] = useAllUserProps();
   const propsData = allUserProps[instanceId];
-
   const initialUserProps = useMemo(() => {
     if (propsData === undefined) return {};
-    return propsData.props.reduce(
-      (props, { prop, value }) => {
-        props[prop] = value;
-        return props;
-      },
-      {} as UserProps
-    );
+    return propsData.props.reduce((props, { prop, value }) => {
+      props[prop] = value;
+      return props;
+    }, {} as UserProps); 
   }, [propsData]);
 
   const [props, setProps] = useState<UserProps>(initialUserProps);
