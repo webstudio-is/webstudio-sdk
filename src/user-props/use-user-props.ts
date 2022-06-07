@@ -17,7 +17,7 @@ export const useUserProps = (instanceId: Instance["id"]) => {
     return propsData.props.reduce((props, { prop, value }) => {
       props[prop] = value;
       return props;
-    }, {} as UserProps);
+    }, {} as UserProps); 
   }, [propsData]);
 
   const [props, setProps] = useState<UserProps>(initialUserProps);
