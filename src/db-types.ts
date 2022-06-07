@@ -6,6 +6,7 @@ import type {
 } from "@prisma/client";
 import type { CssRule } from "./css";
 import * as components from "./components";
+import { UserProp } from "./user-props";
 
 type Instance = {
   id: string;
