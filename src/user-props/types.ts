@@ -3,7 +3,7 @@ import type { InstanceProps, Instance } from "../db-types";
 export type UserProp = {
   id: string;
   prop: string;
-  value: string | boolean;
+  value: string;
 };
 
 export type UserPropsUpdates = {
