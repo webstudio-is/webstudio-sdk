@@ -1,6 +1,6 @@
 {
   "name": "@webstudio-is/sdk",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Webstudio JavaScript / TypeScript API",
   "author": "Webstudio <github@webstudio.is>",
   "repository": "git@github.com:webstudio-is/webstudio-sdk.git",
@@ -52,6 +52,7 @@
   "peerDependencies": {
     "@remix-run/react": "^1.2.3",
     "@remix-run/server-runtime": "^1.2.3",
+    "@storybook/react": "^6.5.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
