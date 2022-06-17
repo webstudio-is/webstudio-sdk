@@ -26,14 +26,8 @@ type Breakpoint = {
   minWidth: number;
 };
 
-type Props = {
-  id: string;
-  prop: string;
-  value: string;
-};
-
 type InstanceProps = Omit<DbInstanceProps, "props"> & {
-  props: Props[];
+  props: UserProp[];
 };
 
 export type {
@@ -45,5 +39,4 @@ export type {
   Tree,
   Breakpoints,
   Breakpoint,
-  Props,
 };
