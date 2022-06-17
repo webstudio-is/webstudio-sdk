@@ -11,22 +11,24 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(uuid())
-  email     String?  @unique
+  id        String    @id @default(uuid())
+  email     String?   @unique
   provider  String?
   image     String?
   username  String?
-  createdAt DateTime @default(now())
+  createdAt DateTime  @default(now())
+  projects  Project[]
 }
 
 model Project {
   id                String  @id @default(uuid())
-  userId            String
+  userId            String?
   title             String
   domain            String  @unique
   prodTreeId        String? // exists when published
   devTreeId         String
   prodTreeIdHistory String  @default("[]")
+  User              User?   @relation(fields: [userId], references: [id])
 }
 
 model Tree {
