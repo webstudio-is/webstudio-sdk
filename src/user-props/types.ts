@@ -4,6 +4,7 @@ export type UserProp = {
   id: string;
   prop: string;
   value: string | boolean;
+  required?: boolean;
 };
 
 export type UserPropsUpdates = {

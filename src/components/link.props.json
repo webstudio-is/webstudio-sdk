@@ -91,17 +91,13 @@
     "defaultValue": null,
     "description": "",
     "name": "href",
-    "parent": {
-      "fileName": "webstudio-sdk/node_modules/@types/react/index.d.ts",
-      "name": "AnchorHTMLAttributes"
-    },
     "declarations": [
       {
-        "fileName": "webstudio-sdk/node_modules/@types/react/index.d.ts",
-        "name": "AnchorHTMLAttributes"
+        "fileName": "src/components/link.tsx",
+        "name": "TypeLiteral"
       }
     ],
-    "required": false,
+    "required": true,
     "type": {
       "name": "string"
     },

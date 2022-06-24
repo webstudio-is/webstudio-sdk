@@ -264,7 +264,9 @@
     }
   },
   "type": {
-    "defaultValue": null,
+    "defaultValue": {
+      "value": "button"
+    },
     "description": "",
     "name": "type",
     "parent": {
