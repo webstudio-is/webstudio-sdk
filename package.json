@@ -1,6 +1,6 @@
 {
   "name": "@webstudio-is/sdk",
-  "version": "0.3.2-login-teams",
+  "version": "0.4.0",
   "description": "Webstudio JavaScript / TypeScript API",
   "author": "Webstudio <github@webstudio.is>",
   "repository": "git@github.com:webstudio-is/webstudio-sdk.git",
