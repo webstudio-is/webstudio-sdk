@@ -265,7 +265,7 @@
   },
   "type": {
     "defaultValue": {
-      "value": "button"
+      "value": "submit"
     },
     "description": "",
     "name": "type",

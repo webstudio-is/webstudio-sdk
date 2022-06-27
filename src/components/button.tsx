@@ -6,10 +6,10 @@ export type ButtonProps = ComponentProps<typeof defaultTag>
 
 export const Button = forwardRef<
   ElementRef<typeof defaultTag>,
-    ButtonProps
->((props, ref) => <button style={{border:"none"}} {...props} ref={ref} />);
+  ButtonProps
+>((props, ref) => <button {...props} ref={ref} />);
 
 Button.defaultProps = {
-    type: "button", // otherwise it will be submit
+    type: "submit", // Match the platform default
 }
 Button.displayName = "Button";
