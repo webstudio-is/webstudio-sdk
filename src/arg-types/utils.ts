@@ -69,8 +69,9 @@ export const mapControlForType = (propItem: PropItem): any => {
             return {control: {type: 'number'}};
         case 'enum': {
             const {value} = type;
+            // Remove additional quotes from enum values
             // @ts-expect-error Original type has `any` type
-            const values = value.map(val => val.value)
+            const values = value.map(val => val.value.replace(/^\"(.+)\"$/, '$1') );
             return {control: {type: values?.length <= 5 ? 'radio' : 'select'}, options: values};
         }
         case 'function':

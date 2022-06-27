@@ -331,13 +331,13 @@
       "type": "select"
     },
     "options": [
-      "\"enter\"",
-      "\"done\"",
-      "\"go\"",
-      "\"next\"",
-      "\"previous\"",
-      "\"search\"",
-      "\"send\""
+      "enter",
+      "done",
+      "go",
+      "next",
+      "previous",
+      "search",
+      "send"
     ]
   },
   "formAction": {
@@ -1207,8 +1207,8 @@
       "type": "radio"
     },
     "options": [
-      "\"yes\"",
-      "\"no\""
+      "yes",
+      "no"
     ]
   },
   "radioGroup": {
@@ -1703,8 +1703,8 @@
       "type": "radio"
     },
     "options": [
-      "\"on\"",
-      "\"off\""
+      "on",
+      "off"
     ]
   },
   "inputMode": {
@@ -1756,14 +1756,14 @@
       "type": "select"
     },
     "options": [
-      "\"text\"",
-      "\"search\"",
-      "\"email\"",
-      "\"tel\"",
-      "\"url\"",
-      "\"none\"",
-      "\"numeric\"",
-      "\"decimal\""
+      "text",
+      "search",
+      "email",
+      "tel",
+      "url",
+      "none",
+      "numeric",
+      "decimal"
     ]
   },
   "is": {
@@ -1869,10 +1869,10 @@
       "type": "radio"
     },
     "options": [
-      "\"list\"",
-      "\"none\"",
-      "\"inline\"",
-      "\"both\""
+      "list",
+      "none",
+      "inline",
+      "both"
     ]
   },
   "aria-busy": {
@@ -2138,12 +2138,12 @@
       "type": "select"
     },
     "options": [
-      "\"link\"",
-      "\"none\"",
-      "\"copy\"",
-      "\"execute\"",
-      "\"move\"",
-      "\"popup\""
+      "link",
+      "none",
+      "copy",
+      "execute",
+      "move",
+      "popup"
     ]
   },
   "aria-errormessage": {
@@ -2422,9 +2422,9 @@
       "type": "radio"
     },
     "options": [
-      "\"off\"",
-      "\"assertive\"",
-      "\"polite\""
+      "off",
+      "assertive",
+      "polite"
     ]
   },
   "aria-modal": {
@@ -2524,8 +2524,8 @@
       "type": "radio"
     },
     "options": [
-      "\"horizontal\"",
-      "\"vertical\""
+      "horizontal",
+      "vertical"
     ]
   },
   "aria-owns": {
@@ -2693,16 +2693,16 @@
       "type": "select"
     },
     "options": [
-      "\"text\"",
-      "\"additions\"",
-      "\"additions removals\"",
-      "\"additions text\"",
-      "\"all\"",
-      "\"removals\"",
-      "\"removals additions\"",
-      "\"removals text\"",
-      "\"text additions\"",
-      "\"text removals\""
+      "text",
+      "additions",
+      "additions removals",
+      "additions text",
+      "all",
+      "removals",
+      "removals additions",
+      "removals text",
+      "text additions",
+      "text removals"
     ]
   },
   "aria-required": {
@@ -2896,10 +2896,10 @@
       "type": "radio"
     },
     "options": [
-      "\"none\"",
-      "\"ascending\"",
-      "\"descending\"",
-      "\"other\""
+      "none",
+      "ascending",
+      "descending",
+      "other"
     ]
   },
   "aria-valuemax": {
