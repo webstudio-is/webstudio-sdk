@@ -88,7 +88,9 @@
     }
   },
   "href": {
-    "defaultValue": null,
+    "defaultValue": {
+      "value": ""
+    },
     "description": "",
     "name": "href",
     "declarations": [
@@ -97,7 +99,7 @@
         "name": "TypeLiteral"
       }
     ],
-    "required": true,
+    "required": false,
     "type": {
       "name": "string"
     },
