@@ -4,9 +4,8 @@ import type {
   User,
   Breakpoints,
 } from "@prisma/client";
-import { UserProp } from "../user-props";
+import type { UserProp } from "../user-props";
 import type { Instance } from "./instance";
-import { z } from "zod";
 
 export type Tree = {
   id: string;
@@ -14,7 +13,7 @@ export type Tree = {
 };
 
 export type InstanceProps = Omit<DbInstanceProps, "props"> & {
-  props: UserProp[];
+  props: Array<UserProp>;
 };
 
 export type { DbInstanceProps, Project, User, Breakpoints };

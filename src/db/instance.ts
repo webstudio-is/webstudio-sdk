@@ -11,10 +11,10 @@ export type Instance = {
 
 export const InstanceSchema = z.lazy(
   () =>
-  z.object({
+    z.object({
       id: z.string(),
       component: z.string(),
-      children: z.array(InstanceSchema, z.string()),
+      children: z.array(z.union([InstanceSchema, z.string()])),
       cssRules: z.array(CssRuleSchema),
     })
   // @todo can't figure out how to make component to be z.enum(Object.keys(components))
