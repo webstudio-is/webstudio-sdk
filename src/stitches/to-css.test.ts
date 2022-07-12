@@ -1,5 +1,4 @@
-import type { Breakpoint } from "../db-types";
-import { type CssRule, initialBreakpoints } from "../css";
+import { type CssRule, initialBreakpoints, type Breakpoint } from "../css";
 import { toCss } from "./to-css";
 
 const breakpoints: Array<Breakpoint> = initialBreakpoints.map(

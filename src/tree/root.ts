@@ -1,5 +1,6 @@
 import { useAllUserProps } from "../user-props/";
-import type { Tree, InstanceProps, Breakpoint } from "../db-types";
+import type { Tree, InstanceProps } from "../db";
+import type {Breakpoint} from '../css'
 import { globalCss, setBreakpoints } from "../stitches";
 import { createElementsTree } from "./create-elements-tree";
 import {

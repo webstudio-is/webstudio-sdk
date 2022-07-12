@@ -5,7 +5,7 @@ import {
   type CSS,
   css as createCss,
 } from "@stitches/core";
-import type { Breakpoint } from "../db-types";
+import type {Breakpoint} from "../css";
 
 let media = {};
 

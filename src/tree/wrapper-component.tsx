@@ -1,5 +1,5 @@
 import React, { useMemo, Fragment } from "react";
-import type { Instance } from "../db-types";
+import type { Instance } from "../db";
 import * as components from "../components";
 import { useUserProps } from "../user-props/use-user-props";
 import { type CSS, css as createCss } from "../stitches";

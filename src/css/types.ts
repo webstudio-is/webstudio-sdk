@@ -1,6 +1,11 @@
-import { units } from "./units";
+import { z } from "zod";
 import { properties } from "./properties";
-import type { Breakpoint } from "../db-types";
+import {
+  BreakpointSchema,
+  CssRuleSchema,
+  StyleValueSchema,
+  UnitSchema,
+} from "./schema";
 
 type Properties = typeof properties;
 
@@ -12,30 +17,10 @@ export type Style = {
   [property in StyleProperty]?: StyleValue;
 };
 
-export type CssRule = {
-  style: Style;
-  breakpoint: Breakpoint["id"];
-};
+export type CssRule = z.infer<typeof CssRuleSchema>;
 
-export type Unit = typeof units[number] | "number";
+export type Unit = z.infer<typeof UnitSchema>;
 
-type UnitValue = {
-  type: "unit";
-  unit: Unit;
-  value: number;
-};
+export type StyleValue = z.infer<typeof StyleValueSchema>;
 
-type KeywordValue = {
-  type: "keyword";
-  // @todo use exact type
-  value: string;
-};
-
-// We want to be able to render the invalid value
-// and show it is invalid visually, without saving it to the db
-type InvalidValue = {
-  type: "invalid";
-  value: string;
-};
-
-export type StyleValue = UnitValue | KeywordValue | InvalidValue;
+export type Breakpoint = z.infer<typeof BreakpointSchema>;
