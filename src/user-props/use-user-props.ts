@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { type Instance } from "../db-types";
+import { type Instance } from "../db";
 import { type UserProp } from "./types";
 import { useAllUserProps } from "./all-user-props";
 

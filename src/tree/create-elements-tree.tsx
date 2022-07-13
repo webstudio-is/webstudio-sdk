@@ -1,6 +1,7 @@
 import React from "react";
 import { toCss } from "../stitches";
-import type { Instance, Breakpoint } from "../db-types";
+import type { Instance } from "../db";
+import type {Breakpoint} from '../css'
 import { type WrapperComponentProps } from "./wrapper-component";
 
 export type ChildrenUpdates = Array<

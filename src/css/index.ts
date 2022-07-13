@@ -5,3 +5,4 @@ export * from "./get-browser-style";
 export * from "./categories";
 export * from "./keyword-values";
 export * from "./breakpoints";
+export * from "./schema";

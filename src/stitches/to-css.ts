@@ -1,6 +1,5 @@
 import type { CSS } from "./css";
-import { type StyleProperty, type StyleValue, type CssRule } from "../css";
-import type { Breakpoint } from "../db-types";
+import type { StyleProperty, StyleValue, CssRule, Breakpoint } from "../css";
 
 export const toValue = (value: StyleValue): string => {
   if (value.type === "unit") {

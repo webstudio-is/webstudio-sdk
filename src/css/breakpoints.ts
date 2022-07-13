@@ -1,4 +1,4 @@
-import { type Breakpoint } from "../db-types";
+import { type Breakpoint } from "./types";
 
 export type BaseBreakpoint = Pick<Breakpoint, "label" | "minWidth">;
 
